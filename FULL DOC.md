@@ -22,7 +22,9 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 在`/Git-test`（本文章案例）目录中开始建立本地git仓库，使用`git init`建立仓库，如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git init.png)（作为习惯，记得建立仓库后**第一时间**加入`README.md`说明文档)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git init.png)
+
+（作为习惯，记得建立仓库后**第一时间**加入`README.md`说明文档)
 
 ***
 
