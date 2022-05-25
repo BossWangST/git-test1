@@ -94,7 +94,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/time-shift.png)
 
-😄，成功喵！可以看到我们在`no-pic`这个branch里，是没有`git add.png`这个图片的，说明我们确实回来了，✌️。下面使用命令`git checkout <branch_name>`回到`master`分支，可以看到`git add.png`又出现了
+😄，成功喵！可以看到我们在`no-pic`这个branch里，是没有`git add.png`这个图片的，说明我们确实回来了，✌️。下面使用命令`git checkout <branch_name>`回到`master`分支，可以看到`git add.png`又出现了👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/return-here.png)
 
@@ -145,7 +145,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 
 
-下面使用`git push -u origin master`来把`master`分支的状态，`同步`到`origin`这个远程`reference`里，而`-u`这个选项代表以后在`master`分支中的`push`操作都默认同步到`origin`这个远程reference里，也就是说，`git push -u origin master`和`git push --set-upstream origin master`等价。而如果没有`-u`或者`--set-upstream`的话，就得每次`git push <远程reference> <要同步到远程仓库的分支名字>`了。
+下面使用`git push -u origin master`来把`master`分支的状态，`同步`到`origin`这个远程`reference`里，而`-u`这个选项代表以后在`master`分支中的`push`操作都默认同步到`origin`这个远程reference里，也就是说，`git push -u origin master`和`git push --set-upstream origin master`等价。而如果没有`-u`或者`--set-upstream`的话，就得每次`git push <远程reference> <要同步到远程仓库的分支名字>`了。👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/push到远程仓库.png)
 
