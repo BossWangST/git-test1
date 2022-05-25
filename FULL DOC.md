@@ -121,7 +121,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 
 
-本地git仓库已经很好用了，但我们肯定要在自由的互联网上**OPEN SOURCE！**那就得把我们的仓库关联到在线仓库，好。
+本地git仓库已经很好用了，但我们肯定要在自由的互联网上 **OPEN SOURCE！** 那就得把我们的仓库关联到在线仓库，好。
 
 先在GitHub上创建一个仓库，如下图所示👇
 
@@ -219,7 +219,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve-merge2.png)
 
-那么在冲突解决之后，我们的`test.c`相当于是融合了`master-copy`分支和`new-feature`分支的修改，就需要在当前分支`master-copy`再进行一次``commit` 👇
+那么在冲突解决之后，我们的`test.c`相当于是融合了`master-copy`分支和`new-feature`分支的修改，就需要在当前分支`master-copy`再进行一次`commit` 👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/merge-ok.png)
 
@@ -247,9 +247,9 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 `pull request`这个名字，
 
-前面是`pull`：我们知道，`git pull`是拉取远程仓库中分支的最新内容同步到本地仓库；
+前面是`pull`：我们知道，`git pull`是 **拉取** 远程仓库中分支的最新内容同步到本地仓库；
 
-后面是`request`：英文含义是 请求 。
+后面是`request`：英文含义是 **请求**  。
 
 那么很显然，所谓的PR就是先**拉取**`pull`分支同步之后，你又做了一些修改，然后**请求**`request`仓库的管理员来**合并**`merge`你的这个分支。
 
