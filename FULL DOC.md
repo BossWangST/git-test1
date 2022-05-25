@@ -80,7 +80,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 这里就看到了2个`commit`，同时可以看到提交时的`<message>`信息。
 
-那么如果这时候我想要回到没有`git add.png`的时候（时光倒流），那就可以使用`git checkout <commit_id>`回到那个commit的状态，而为了演示方便，顺便介绍branch的功能，我们可以用`git checkout -b <name> <commit_id>`来开一个新的`branch`分支，让那个分支的状态就是想要回到的那个`commit`的状态。
+那么如果这时候我想要回到没有`git add.png`的时候（时光倒流），那就可以使用`git checkout <commit_id>`回到那个`commit`的状态，而为了演示方便，顺便介绍branch的功能，我们可以用`git checkout -b <name> <commit_id>`来开一个新的`branch`分支，让那个分支的状态就是想要回到的那个`commit`的状态。
 
 这里来理解一下所谓的`branch`到底是什么？其实，`branch`正如其名，是一个分支，就是一个从主干里分出来的一个支干，在创建一个`branch`的时候，会把当前分支的`状态`给拷贝一份成为新分支的初始状态，之后就可以在不同的分支里写代码了（不同分支相互分离），下面也会讲到更具体的案例，**别急喵！**
 
