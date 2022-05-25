@@ -22,7 +22,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 在`/Git-test`（本文章案例）目录中开始建立本地git仓库，使用`git init`建立仓库，如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git init.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-init.png)
 
 （作为习惯，记得建立仓库后**第一时间**加入`README.md`说明文档)
 
@@ -41,7 +41,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 这时候，本地git仓库建立完毕，我们就可以在本地git仓库中开始编写代码，编写结束后可以使用`git status`查看git追踪情况，如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git status.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-status.png)
 
 写了一些代码了，下面就可以使用`git add <file>`将未追踪的文件`untracked file`加入到当前`branch`（下面会讲什么是`branch`）的`staging area`暂存区中，以为后续提交`commit`（下面也会讲`commit`）作准备。注意，`git add <file>`命令**不会**真的影响到当前仓库的`branch`，只是先放到暂存区中，让git知道一会`commit`需要提交什么。
 
@@ -49,7 +49,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git add.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-add.png)
 
 ---
 
@@ -70,11 +70,11 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 所有的commit都有一个独特的编号，可以使用`git log`来查看，如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git commit1.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-commit1.png)
 
 从图片里可以看到，这里使用了`git commit -m <message>`命令，一共创建了2个commit，后一个含有`git add.png`，前一个没有，那这样就可以通过`git log`来查看👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git log.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-log.png)
 
 这里就看到了2个`commit`，同时可以看到提交时的`<message>`可以查看。
 
@@ -84,7 +84,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 正好，这里整错了，也记录一下（永远记住，所谓的*经验分享*，有价值的一定是**失败案例**）👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/branch失误.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/branch-mistake.png)
 
 看看，这里刚才敲了什么命令？`git checkout -b db10d`，这里的`db10d`是一个`<commit_id>`
 
@@ -92,11 +92,11 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 但是你新建分支的时候**没起名字**啊，那这个命令里，`db10d`就成了分支的名字，也就是创建了一个名叫`db10d`的分支。所以现在就要把它删了，就应当使用`git branch -d <branch_name>`来删除那个分支。好，下面继续时光倒流👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/时光倒流.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/time-shift.png)
 
 😄，成功喵！可以看到我们在`no-pic`这个branch里，是没有`git add.png`这个图片的，说明我们确实回来了，✌️。下面使用命令`git checkout <branch_name>`回到`master`分支，可以看到`git add.png`又出现了
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/回到现在.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/return-here.png)
 
 ---
 
@@ -173,7 +173,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 现在假设我在`new-feature`里已经开发好了一个新功能，然后我回到`master`分支准备去把这个新功能`merge`，也就是合并进来，那么我所做的事情就是下面这个笔记里所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git merge.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-merge.png)
 
 好，我们现在来尝试一下👇
 
@@ -193,7 +193,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 现在使用`git diff <branch_name>`来在`master-copy`分支中检查和`new-feature`分支的不同👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git diff.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-diff.png)
 
 可以看两个分支都对原本的`test.c`进行了修改（原本`master`分支里，是只有`printf("Hello world\n");`这一句的）所以下面来尝试进行一下`git merge <branch_name>`👇
 
@@ -211,15 +211,15 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 那么我们就需要把冲突解决👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve conflict.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve-conflict.png)
 
 这里我把标注冲突的符号删除，保留了`master-copy`中的一些修改和`new-feature`中的一些修改，我认为这样是两者共存的一种解决方案，那么此时就认为，冲突解决了，我们再查看`git status`和`git diff`👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve merge2.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve-merge2.png)
 
 那么在冲突解决之后，我们的`test.c`相当于是融合了`master-copy`分支和`new-feature`分支的修改，就需要在当前分支`master-copy`再进行一次commit(提交)👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/merge ok.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/merge-ok.png)
 
 这样我们的有冲突的`merge`就搞定了。
 
@@ -255,7 +255,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 好，那么我们就来实践一下👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/func-a branch.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/func-a-branch.png)
 
 这里是在`func-A`分支里对`test.c`文件对修改👇
 
@@ -281,7 +281,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 然后管理员就会给你把分支删了，而你则可以通过`git pull`拉取最新的主分支，就能看到你的修改已经被接受了。***高不高兴？***👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/delete PR分支.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/delete-PR分支.png)
 
 只能说很牛了，又犯病了，test.c没commit就push上去了。***你可真是个人才啊伙计。***
 
