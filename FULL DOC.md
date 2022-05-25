@@ -369,3 +369,7 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 刚才写的关于时光倒流的内容全没了，说明当时确实没有`commit`就直接开了一个新的分支来写东西了，那么这时候就需要用到上面所讲的`merge`的功能了，得在`master`分支中，把`time-shift`的内容合并，如下图所示👇
 
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252008811.png)
+
+好了，现在我回到了`master`分支，把`time-shift`分支的内容`merge`了回来，下面记得`commit`之后再到`time-shift`分支去玩一玩`git reset --hard <commit_id>`吧。👇
+
