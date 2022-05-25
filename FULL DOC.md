@@ -53,7 +53,7 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 ---
 
-### 3. 在仓库里进行提交
+### <a name="time-shift"></a>3. 在仓库里进行提交
 
 #### 所用命令如下：
 
@@ -318,4 +318,42 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 而在`git pull`之后，就可以看到远程主分支的修改了👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/远程主分支修改.png)
+
+至此，我们关于远程仓库的**基本讲解**就结束了，相信这些内容已经可以让你开始动手使用git来做许多事情了。
+
+## 再探时光倒流与PR
+
+### 1. 如何撤销`commit`？
+
+#### 所用命令如下：
+
+- `git reset [--hard] <commit_id>`
+
+我们在讲述本地git仓库的一节[在仓库里进行提交](#time-shift)中曾经提到过“时光倒流”这一功能，在这里我们来详细讲解一下。
+
+比方说，我们在一个仓库里已经写了一些代码，然后这时候我们不小心脑子抽了，写了一个明显有问题的程序功能到当前分支里，然后还傻乎乎的`commit`了，这时候当我们发现的时候，该怎么`回到上一个commit`的`状态`中去呢？
+
+这时候我们就需要真正的去“时光倒流”了，如下图所示👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/wrong-commit.png)
+
+很明显，我们的*赛博搬运工*不小心把自己对老板的吐槽写到了代码里，然后他可能是忙昏过去了，就这么把这个`test.c`给`commit`了👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205251923536.png)
+
+这下他慌了，这要是老板看到了不就寄了吗？但是，**别急喵**，我们可是有git这个神器的，我们下面就使用命令`git reset HEAD~1`来时光倒流👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205251925353.png)
+
+OK，我们成功了，使用`git status`进行查看时，发现我们的`test.c`回到了**修改完但是还没有`commit`**的状态（`FULL DOC.md`也是同理），那么赶紧去把那句话删了吧！
+
+而从上面时光倒流的命令`git reset HEAD~1`中，我们也可以看到`HEAD`就是代指**当前`<commit_id>`**的一个单词，而`HEAD~1`则是代指**上一次的`<commit_id>`**，所以这样就可以回到上一次`commit`时的`状态`了。但是如果想要回到过去**任意一个`commit`时的`状态`**，我们就需要使用命令`git log`来查看之前每次`commit`的`<commit_id>`，然后用这个独一无二的`<commit_id>`去进行`git reset`来达到任意的时光倒流了。注意，这里的*返回状态*是说`commit`里回到了之前的`状态`（也就是当时拍的照片），而文件本身**没有发生改变**。
+
+那如果想要**完全**返回某一个`commit`，那就需要使用命令`git reset --hard <commit_id>`，即我当前`commit`里的修改**全都不要了**，也就是要把当前仓库的`状态`**完全改变**为之前某一个`commit`时候的状态。更具体的说，相比于没有`--hard`选项的`git reset`命令，带有`--hard`选项的重置就是把整个仓库**变成`<commit_id>`对应的`commit`时的状态**，你当前`branch`无论是什么样的，都会全部回到过去的状态了。⚠️ **此命令是较为“危险”的一个命令，请再三确认后再使用** ⚠️
+
+下面为了演示，我们开一个新的分支，防止出现意外把所有东西都整寄了（不过这也不怕，毕竟我们可以时光倒流啊）。👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205251949287.png)
+
+我们在新的分支`time-shift`中，把`test.c`里大部分语句都删了（也许只是让*赛博搬运工*稍微发泄了一下罢了），然后我们进行一次`commit`，同时这之后又在里面写了好几次骂老板的话，还都`commit`了，如下图所示👇
 
