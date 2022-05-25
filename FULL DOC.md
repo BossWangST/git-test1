@@ -43,9 +43,9 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-status.png)
 
-写了一些代码了，下面就可以使用`git add <file>`将未追踪的文件`untracked file`加入到当前`branch`（下面会讲什么是`branch`）的`staging area`暂存区中，以为后续提交`commit`（下面也会讲`commit`）作准备。注意，`git add <file>`命令**不会**真的影响到当前仓库的`branch`，只是先放到暂存区中，让git知道一会`commit`需要提交什么。
+写了一些代码了，下面就可以使用`git add <file>`将未追踪的文件`untracked file`加入到当前`branch`（下面会讲什么是`branch`）的`staging area`暂存区中，为后续提交`commit`（下面也会讲`commit`）作准备。注意，`git add <file>`命令**不会**真的影响到当前仓库的`branch`，只是先放到暂存区中，让git知道一会`commit`需要提交什么。
 
-*上面这段话提到了许多概念，* ***别害怕*** *，下面就会慢慢讲清楚，这里的重点是理解`git add <file>`命令，它真的只是去* ***告诉*** *git，让git明白，你一会想要把哪些文件的* ***状态*** *去保存下来而已。*
+*上面这段话提到了许多概念，* ***别害怕*** *，下面就会慢慢讲清楚，这里的重点是理解`git add <file>`命令，它真的只是去* ***告诉*** *git，让git明白，你一会想要把哪些文件的* `状态` *去保存下来而已。*
 
 如下图所示👇
 
@@ -68,11 +68,13 @@ Git的**核心功能**就是进行`版本管理`，也就是仓库里不同时�
 
 终于到了**特别重要**的`commit`提交部分了，首先理解到底什么是一个`commit`？其实，`commit`可以理解为仓库保存的一个`状态`，这个`状态`里面存储了所有`tracked file`（git追踪的文件），其`commit`那一刻的样子，也就是说这个`commit`对仓库里的`tracked file`拍了一张照片，同时用一个独一无二的编号把这个照片给保留在了`git log`中，那么这个“照片”作用就有很多了：比如下一次`commit`的时候可以去和之前的`commit`去对比，再比如以后万一某个`commit`把软件整寄了，也可以时空穿梭回来……
 
-所有的commit都有一个独特的编号，可以使用`git log`来查看，如下图所示👇
+所有的commit都有一个独特的编号，可以使用`git log`来查看。
+
+我们来尝试进行几次`commit`，如下图所示👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-commit1.png)
 
-从图片里可以看到，这里使用了`git commit -m <message>`命令，一共创建了2个commit，后一个含有`git add.png`，前一个没有，那这样就可以通过`git log`来查看👇
+从图片里可以看到，这里使用了`git commit -m <message>`命令，一共创建了2个`commit`，后一个含有`git add.png`，前一个没有，那这样就可以通过`git log`来查看👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/git-log.png)
 
