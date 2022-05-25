@@ -309,7 +309,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 主分支终于好了，**耶唉！**
 
-好家伙，真是错误频出，回到主分支后，别忘了先`git pull`来拉取最新的远程主分支啊（刚才不是才接受了一个``func-A`的`merge`吗？），如果不`git pull`就`git push`，看看什么鬼样！👇
+好家伙，真是错误频出，回到主分支后，别忘了先`git pull`来拉取最新的远程主分支啊（刚才不是才接受了一个`func-A`的`merge`吗？），如果不`git pull`就`git push`，看看什么鬼样！👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/没pull就push.png)
 
