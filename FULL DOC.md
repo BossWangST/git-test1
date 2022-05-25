@@ -134,7 +134,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 - `<远程仓库reference在本地仓库的名字>`，这个就是说，既然远程已经有了一个仓库了，那么我本地想要和远程仓库进行`同步`的话，肯定不会每次都想输那么长的一个远程仓库名字，我们这时候就使用一个所谓`reference`，也就是类似于C中的指针，来指向我们的远程仓库，那就需要给这个`reference`起一个名字，也就是这里的`<远程仓库reference在本地仓库的名字>`
 - `<远程仓库的git链接>`，这个就是创建远程仓库之后，我们能够在网页GitHub上看到的链接，在这里就是`git@github.com:BossWangST/git-test1.git`
 
-对了，这里提一下，我还是建议**不要**直接复制GitHub网页里给你的那几个代码去执行，**永远不要去执行自己没搞懂的命令！**网页里的`git branch -M main`实际上会把你当前的分支改名成`main`，但说实话一旦搞了这个，很多人（包括我）都会觉得很乱，因为现在有了3个特殊的名字`master` `main` `origin`一旦搞错了比如执行了`git push origin master`，就又会在远程仓库创建了一个名叫`master`的分支，但是这种时候创建的分支一般是为了创建`pull request`而使用的，如果这时候不了解什么是PR，就会脑子很乱，想*remake*了（惨痛经历）。
+对了，这里提一下，我还是建议**不要**直接复制GitHub网页里给你的那几个代码去执行， **永远不要去执行自己没搞懂的命令！** 网页里的`git branch -M main`实际上会把你当前的分支改名成`main`，但说实话一旦搞了这个，很多人（包括我）都会觉得很乱，因为现在有了3个特殊的名字`master` `main` `origin`一旦搞错了比如执行了`git push origin master`，就又会在远程仓库创建了一个名叫`master`的分支，但是这种时候创建的分支一般是为了创建`pull request`而使用的，如果这时候不了解什么是PR，就会脑子很乱，想*remake*了（惨痛经历）。
 
 ---
 
@@ -157,7 +157,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 - `Branch 'master' set up to track remote branch 'master' from 'origin'.`表示`本地的master`分支已经设定为和`远程reference的origin`中的`远程的master`分支建立了追踪联系，以后在`本地的master`分支中，执行的`git push`就等价于执行了`git push origin master`了。👌
 
-如果我有多个分支，比如master是**正式版**，然后我想加一个新的功能，我开了一个名叫`new-feature`的分支，新建分支是用`git checkout -b <new_branch_name>`，注意，如果直接使用这条命令，那就是相当于创建了一个新的分支，其**状态和创建分支的分支**一样，比如我现在是处于`master`分支里，我使用了`git checkout -b new-feature`，那么这个`new-feature`分支的状态，就是等同于我`master`的状态，但是之后`master`和`new-feature`之间就没关系了。如下图所示👇
+如果我有多个分支，比如`master`是**正式版**，然后我想加一个新的功能，我开了一个名叫`new-feature`的分支，新建分支是用`git checkout -b <new_branch_name>`，注意，如果直接使用这条命令，那就是相当于创建了一个新的分支，其**状态和创建分支的分支**一样，比如我现在是处于`master`分支里，我使用了`git checkout -b new-feature`，那么这个`new-feature`分支的状态，就是等同于我`master`的状态，但是之后`master`和`new-feature`之间就没关系了。如下图所示👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/新分支.png)
 
@@ -189,7 +189,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ##### 有冲突的
 
-如果是有冲突的merge，是什么情况呢？这里我们再开一个分支`master-copy`把当前master分支的状态复制一份，同时对`master-copy`里的`test.c`来进行一些修改(⚠️**修改了同一行！**这是产生冲突的关键)。
+如果是有冲突的merge，是什么情况呢？这里我们再开一个分支`master-copy`把当前`master`分支的状态复制一份，同时对`master-copy`里的`test.c`来进行一些修改(⚠️ **修改了同一行！** 这是产生冲突的关键)。
 
 那么此时如果在`master-copy`中想要`git merge new-feature`的话，就会出现冲突，即`master-copy`当前状态里的`test.c`和`new-feature`当前状态里的`test.c`都是从`master`分支里复制过来并进行了一些修改的文件了，如果现在要把`new-feature`分支合并到`master-copy`分支中，你说合并完后`test.c`里的内容听谁的？听`master-copy`的，还是听`new-feature`的？所以我们就需要来处理这个冲突问题：
 
@@ -219,7 +219,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/solve-merge2.png)
 
-那么在冲突解决之后，我们的`test.c`相当于是融合了`master-copy`分支和`new-feature`分支的修改，就需要在当前分支`master-copy`再进行一次commit(提交)👇
+那么在冲突解决之后，我们的`test.c`相当于是融合了`master-copy`分支和`new-feature`分支的修改，就需要在当前分支`master-copy`再进行一次``commit` 👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/merge-ok.png)
 
@@ -287,7 +287,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/delete-PR分支.png)
 
-只能说很牛了，又犯病了，test.c没commit就push上去了。***你可真是个人才啊伙计。***
+只能说很牛了，又犯病了，`test.c`没`commit`就`push`上去了。***你可真是个人才啊伙计。***
 
 不过也好，**失败经历**才是最好的教材！👇
 
@@ -299,7 +299,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/testc根本没修改.png)
 
-- 其次就是，你现在想要回到`master`分支去做事的话，git就会提示你说，你要是现在回去了，你刚才辛辛苦苦写的`test.c`就全没了！所以要么进行一次commit提交，要么使用`git stash`来暂存，暂存的事情我们“今天”再聊（现在是2022-5-25 0:03）👇
+- 其次就是，你现在想要回到`master`分支去做事的话，git就会提示你说，你要是现在回去了，你刚才辛辛苦苦写的`test.c`就全没了！所以要么进行一次`commit`提交，要么使用`git stash`来暂存，暂存的事情我们“今天”再聊（现在是2022-5-25 0:03）👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/重新PR.png)
 
