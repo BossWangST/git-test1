@@ -373,3 +373,27 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 好了，现在我回到了`master`分支，把`time-shift`分支的内容`merge`了回来，下面记得`commit`之后再到`time-shift`分支去玩一玩`git reset --hard <commit_id>`吧。👇
 
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252017940.png)
+
+可以看到，在`time-shift`分支中，我们进行了多次的`commit`，这个时候查看`test.c`的样子，是在第三次`commit`之后，而我想回到过去没有进行任何`commit`的时候，就得通过`git log`来查看到底要回到哪个`commit`的状态了👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252022479.png)
+
+可以看到，我们想回到的，应当是最后标有`master`的那个分支，因为那就是我们新建这个`time-shift`分支时候的`状态`，所以我们记住那个`commit`的前几位`<commit_id>`，在这里就是`b42ed`，然后使用`git reset --hard <commit_id>`来进行真真切切的时光倒流，如下图所示👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252025370.png)
+
+😄，这下真的时光倒流了哦，我们整个分支的`状态`都回到了最一开始的时候，是真的完成了时光倒流。
+
+---
+
+### 2. 真实的`pull request`
+
+### 所用的命令如下：
+
+- `git clone <git链接🔗地址>`
+
+
+
+为什么说这一节叫”真实的`pull request`“呢？就是因为，在真实世界里，太多的仓库我们并没有在里面工作的权限，也就意味着我们不可能在本地直接像自己所建立的远程仓库那样，进行`commit`和`push`操作了，那应该怎么办？**别急喵**，GitHub为我们准备了一个名叫`fork`的功能，如下图所示👇
+
