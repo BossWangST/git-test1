@@ -397,3 +397,18 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 为什么说这一节叫”真实的`pull request`“呢？就是因为，在真实世界里，太多的仓库我们并没有在里面工作的权限，也就意味着我们不可能在本地直接像自己所建立的远程仓库那样，进行`commit`和`push`操作了，那应该怎么办？**别急喵**，GitHub为我们准备了一个名叫`fork`的功能，如下图所示👇
 
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252033307.png)
+
+这个`fork`的功能，说白了，就是把别人的仓库直接**拷贝**一份变成你自己的一个仓库，而变成你自己的仓库之后，你就可以直接`git clone <git链接🔗地址>`来把自己的这个远程仓库拉取下来做修改了，而这之后所有操作就都是上面所讲过了，除了`pull request`。
+
+所以这章的名字叫*再探`pull request`*，就是说你自己当然可以在自己的仓库里随意进行各种`merge`，但是这些`merge`并不会真的影响到你`fork`的那个仓库。所以如果你对某个仓库的代码做了一些改进，又想让那个仓库的管理员来`merge`你的分支，就需要把你的想要`commit`的分支，去向原仓库提交一份`pull request`了。如下图所示👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252039427.png)
+
+这里我`fork`了一个仓库，同时下面对其进行些许更改👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252041875.png)
+
+那么如果我想要向**原仓库**提交一份更改，我就可以在网页中的`Pull requests`页面里，去进行提交，如下图所示👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252045403.png)
