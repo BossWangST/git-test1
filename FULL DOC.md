@@ -321,7 +321,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 至此，我们关于远程仓库的**基本讲解**就结束了，相信这些内容已经可以让你开始动手使用git来做许多事情了。
 
-## 再探时光倒流与PR
+## 再探时光倒流, PR, 和`branch`
 
 ### 1. 如何撤销`commit`？
 
@@ -345,7 +345,7 @@ A[git init]-->B["git add (file)"] --> C["git commit [-m (message)]"]
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205251925353.png)
 
-OK，我们成功了，使用`git status`进行查看时，发现我们的`test.c`回到了**修改完但是还没有`commit`**的状态（`FULL DOC.md`也是同理），那么赶紧去把那句话删了吧！
+OK，我们成功了，使用`git status`进行查看时，发现我们的`test.c`回到了** 修改完但是还没有`commit` **的状态（`FULL DOC.md`也是同理），那么赶紧去把那句话删了吧！
 
 而从上面时光倒流的命令`git reset HEAD~1`中，我们也可以看到`HEAD`就是代指**当前`<commit_id>`**的一个单词，而`HEAD~1`则是代指**上一次的`<commit_id>`**，所以这样就可以回到上一次`commit`时的`状态`了。但是如果想要回到过去**任意一个`commit`时的`状态`**，我们就需要使用命令`git log`来查看之前每次`commit`的`<commit_id>`，然后用这个独一无二的`<commit_id>`去进行`git reset`来达到任意的时光倒流了。注意，这里的*返回状态*是说`commit`里回到了之前的`状态`（也就是当时拍的照片），而文件本身**没有发生改变**。
 
@@ -357,7 +357,7 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 我们在新的分支`time-shift`中，把`test.c`里大部分语句都删了（也许只是让*赛博搬运工*稍微发泄了一下罢了），然后我们进行一次`commit`，同时这之后又在里面写了好几次骂老板的话，还都`commit`了，如下图所示👇
 
-**别急！！！！！！！！！！！**差点心脏病要犯了，记录一下问题：我新开`time-shift`分支的时候，忘记在主分支`master`里`commit`对`FULL DOC.md`的修改了，但是`git checkout -b time-shift`命令又成功执行了，正好也说明了：如果在某一个分支中做了一些修改但还没有`commit`，然后这个时候又开了一个新的分支，那么造成的结果就是，**新的分支是对开辟新分支的分支**的`状态`进行了保存，也就是新分支的`状态`就是对**开辟分支状态**的复制，而这里的**开辟分支状态**并不是开辟分支的最新的`commit`记录的状态，而是真正的*最新状态*。
+**别急！！！！！！！！！！！**差点心脏病要犯了，记录一下问题：我新开`time-shift`分支的时候，忘记在主分支`master`里`commit`对`FULL DOC.md`的修改了，但是`git checkout -b time-shift`命令又成功执行了，正好也说明了：如果在某一个分支中做了一些修改但还没有`commit`，然后这个时候又开了一个新的分支，那么造成的结果就是，**新的分支是对开辟新分支的分支**的`状态`进行了保存，也就是新分支的`状态`就是对**开辟分支状态**的复制，而这里的**开辟分支状态**并不是开辟分支的最新的`commit`记录的`状态`，而是真正的*最新状态*。
 
 我们实际来看一下👇
 
@@ -375,7 +375,7 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252017940.png)
 
-可以看到，在`time-shift`分支中，我们进行了多次的`commit`，这个时候查看`test.c`的样子，是在第三次`commit`之后，而我想回到过去没有进行任何`commit`的时候，就得通过`git log`来查看到底要回到哪个`commit`的状态了👇
+可以看到，在`time-shift`分支中，我们进行了多次的`commit`，这个时候查看`test.c`的样子，是在第三次`commit`之后，而我想回到过去没有进行任何`commit`的时候，就得通过`git log`来查看到底要回到哪个`commit`的`状态`了👇
 
 ![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252022479.png)
 
@@ -389,7 +389,7 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 ### 2. 真实的`pull request`
 
-### 所用的命令如下：
+#### 所用的命令如下：
 
 - `git clone <git链接🔗地址>`
 
@@ -411,4 +411,81 @@ OK，我们成功了，使用`git status`进行查看时，发现我们的`test.
 
 那么如果我想要向**原仓库**提交一份更改，我就可以在网页中的`Pull requests`页面里，去进行提交，如下图所示👇
 
-![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205252045403.png)
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261051520.png)
+
+👌，那么关于通过`fork`来进行向原仓库提出`pull request`的过程就到此为止了。
+
+---
+
+### 3. 又议`branch`
+
+**别急喵**，To be written.
+
+---
+
+## 更加提升git功力的操作
+
+### 1. 好的`commit`
+
+#### 所用命令如下：
+
+- `git commit`
+
+
+
+我们在[在仓库里进行提交](#time-shift)里就讲到过，git**最最核心**的就是`commit`这个功能了，那么我们之前谈论`commit`时，说每个`commit`相当于对仓库的当前分支拍了一张照片，把`状态`记录了下来，但是那其实是不准确的。
+
+准确的说，我们的每一次`commit`，都做了两件事情：
+
+- 把**暂存区**中的**被修改了的文件**的`状态`记录了下来
+- 把这一次之前的`commit`中，**有关这次修改了的文件**的`状态`更新为刚才记录的最新`状态`
+
+那么这样一来，我们的`commit`就可以做得更加**细粒化**，画图来表示的话就是这样👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261547147.jpeg)
+
+下面我们就对`test.c`来做多个地方的修改，来验证这一功能👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261647969.png)
+
+可以看到使用`git add <file> -p`的时候，*git明明没有给我们分开啊？？*，没错，在这里就要介绍git对于`patch`的划分依据了，如果想要修改的文件里，git能把多个修改划分到不同的`hunk`中去（这里的`hunk`和`patch`是等价的概念），那么必须满足一个要求，也就是
+
+[**Unchanged lines are required between changed lines for git to be able to automatically split the patch.**](https://stackoverflow.com/questions/6276752/can-i-split-an-already-split-hunk-with-git)
+
+即，**保持没有改变的行**必须能把**已经改变了的行**给分离开来。那么这时候怎么办呢？**别急喵**，我们观察这时候git给我们的提示，`[y,n,q,a,d,s,e,?]`，这也太多了，那我们就用到哪个讲哪个吧。我们现在要使用的就是`e`，也就是`edit`的简写，我们现在输入`e`回车👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261647486.png)
+
+我们就会进入一个编辑器的界面，git贴心的给我们讲解了这个页面应该怎么操作来把我们的`commit`细粒化到逐行。
+
+首先可以看到，我们文件的修改情况以`+` `-`号表示在了编辑器的第一列，我们的操作如下：
+
+- 对于`-`开头的行，其表示我们在这次修改中，把这一行给删除了，如果我们想要**保留<删除>这个修改**到我们的`commit`中，那么我们就不做任何修改（这个也很直观，既然是保留删除，那肯定`-`是要保留的）；反之，如果我们想要**不把<删除>这个修改**放在我们的`commit`中，我们就**把这里的`-`号改成一个` `空格**（同样很直观，把`-`号改成空格之后，就和没有被修改的内容一样了，会被认为是没有任何修改，也就相当于在`commit`中不会出现**删除**这个修改了）
+- 对于`+`开头的行，其表示我们在这次修改中，新增了这一行，那么如果我们想要**保留<新增>这个修改**到我们的`commit`中，那么我们也是不做修改的；反之，如果我们想要**不把<新增>这个修改**放在我们的`commit`中，我们就**把这一行直接删除**（还是很直观，删除了这一行就好像没有新增这一行一样，`commit`中也就不会出现**新增**这个修改了）
+- 还有一个，对于`#`开头的行，它就是注释，不会影响到你的真实文件和`commit`中的任何内容
+
+所以，根据我们刚才的分类，更具体的说，应当根据对文件修改的不同**Topic**，应当是一个不同的`commit`，马上我们就会说到一个**好的`commit`**，除了要注意Topic问题，还要关注`commit`的`<message>`的书写，先来看做了什么修改👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261718283.png)
+
+可以看到，我在这里认为，我的Topic分为两个，就是*删除*和*新增*，那么我就把*删除*的修改保留了下来，同时把*新增*的修改给删除了，那么下面就要开始进行`commit`，之前我们的`commit`都是只用一句话描述了我们的`commit`，但是这样对于之后自己的阅览`commit`的时候非常不友好，并不能看出来具体改了哪些内容，所以我们在`commit`的时候，需要将`commit`的`<message>`分为两部分：
+
+- **Subject**=concise summary of what happened；用简短的语言描述精确的修改
+- **body**=more detailed explanation
+  - What is now **different** than before?
+  - What is the **reason** for the change?
+  - Is there anything to watch out for / anything particularly remarkable?
+
+也就是说，为了之后阅读的方便，我们应当尽量把每个`commit`的内容都以*Subject+Body*的形式写下，这能为我们提供相当的便利。在此之前，我们可以先使用`git status`查看我们是不是成功将`test.c`分成了多个`hunk`添加到暂存区了👇 
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205261952887.png)
+
+可以看到，我们成功的将`test.c`的一部分加入了将要提交`commit`的暂存区中，这是从`git status`里`test.c`既出现在`not staged to commit`，又出现`changes to commit`两个地方能够得到的结论。下面我们就开始写一个漂亮的`git commit`的`<message>`了👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205262000646.png)
+
+可以看到我们的**Subject**是`Updated test.c`，而具体是做了什么更新呢，在**Body**里就写到`Remove func A from test.c`，说明我们的更新是删除了`func-A`，这样的一个`commit`就非常的**好**，就是因为到时候我们查看`git log`的时候，就能够很好的看到每一个`commit`具体的提交内容了👇
+
+![](https://bosswang-pic.oss-cn-hangzhou.aliyuncs.com/img/202205262017009.png)
+
+在`git log`里我们能够清晰地看到，两次`commit`分别对应了不同的对`test.c`的更新，非常直观。
